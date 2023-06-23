@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">List Form</h1>
+    @*<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
+</div>
+<a class="btn btn-primary" asp-controller="Home" asp-action="Create">Create</a>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Friend item in Model)
+        @*@foreach (Friend item in ViewBag.ListFriends)*@
+        {        
+        <tr>
+            <th scope="row">@item.Id</th>
+            <td>@item.Nama</td>
+            <td>@item.Address</td>
+            <td>
+                <a class="btn btn-primary" asp-controller="Home" asp-action="Edit" asp-route-Id="@item.Id">Edit</a>
+                <a class="btn btn-success">Detail</a>
+                <a class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
